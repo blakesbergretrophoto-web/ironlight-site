@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT: swap "Studio Name" everywhere once you pick a name -->
+<title>Studio Name | Brand films, photography, websites and social for companies that build real things</title>
+<meta name="description" content="Cinematic brand films, photography, website redesigns and social refreshes from one shoot. Everything your brand needs to look the part, without agency costs.">
+<meta property="og:title" content="Studio Name | Brand films, photography, websites and social">
+<meta property="og:description" content="Brand films, photography, websites and social, all from one shoot.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --concrete:#E4E2DD;   /* page */
+    --paper:#F2F1EE;      /* raised surfaces */
+    --ink:#1C1F22;        /* text */
+    --steel:#2F4A5C;      /* secondary / links */
+    --ochre:#B8862B;      /* sparing accent */
+    --rule:#C3C0B9;
+    --film:#000;          /* letterbox frames */
+    --display:"Archivo", system-ui, sans-serif;
+    --body:"Newsreader", Georgia, serif;
+    --wrap:min(1240px, 100% - 3rem);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--concrete);color:var(--ink);font:400 1.1875rem/1.62 var(--body);-webkit-font-smoothing:antialiased}
+  img,video,iframe{display:block;max-width:100%}
+  a{color:var(--steel)}
+  :focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+  .wrap{width:var(--wrap);margin-inline:auto}
+
+  h1,h2,h3{font-family:var(--display);font-stretch:118%;font-weight:760;line-height:1;letter-spacing:-.02em;margin:0}
+  h1{font-size:clamp(2.6rem,6.4vw,5.6rem)}
+  h2{font-size:clamp(2rem,4vw,3.4rem);margin-bottom:.6em}
+  h3{font-size:1.35rem;font-stretch:108%;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+  p{margin:0 0 1em;max-width:62ch}
+  .lede{font-size:1.35rem;line-height:1.5;max-width:40ch}
+
+  /* buttons */
+  .btn{display:inline-block;font:650 1rem/1 var(--display);font-stretch:105%;text-decoration:none;padding:1.05em 1.5em;border-radius:2px;border:2px solid var(--ink);cursor:pointer}
+  .btn-solid{background:var(--ink);color:var(--paper)}
+  .btn-solid:hover{background:var(--steel);border-color:var(--steel)}
+  .btn-line{background:transparent;color:var(--ink)}
+  .btn-line:hover{background:var(--ink);color:var(--paper)}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--concrete) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:2rem}
+  .logo{font:800 1.25rem/1 var(--display);font-stretch:125%;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+  .nav ul{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0;font:500 .98rem var(--display)}
+  .nav ul a{color:var(--ink);text-decoration:none}
+  .nav ul a:hover{color:var(--steel);text-decoration:underline;text-underline-offset:4px}
+  .nav .btn{padding:.75em 1.1em}
+  .menu-toggle{display:none;background:none;border:0;font:600 1rem var(--display);color:var(--ink)}
+
+  /* hero: the one bold move — a 2.39:1 letterbox frame */
+  .hero{padding:clamp(1.5rem,4vw,3rem) 0 clamp(3rem,7vw,6rem)}
+  .frame{position:relative;background:var(--film);aspect-ratio:2.39/1;overflow:hidden}
+  .frame video,.frame .placeholder{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .placeholder{display:grid;place-items:center;color:#8d939a;font:500 .95rem var(--display);text-align:center;padding:1rem;
+    background:radial-gradient(120% 90% at 70% 40%,#3a4a55 0%,#1b252c 45%,#000 100%)}
+  .hero-frame{opacity:0;transform:scaleY(.86);animation:open 1.1s cubic-bezier(.2,.7,.1,1) .15s forwards}
+  @keyframes open{to{opacity:1;transform:none}}
+  .hero-copy{display:grid;grid-template-columns:1.35fr 1fr;gap:3rem;align-items:end;margin-top:clamp(1.75rem,4vw,3rem)}
+  .hero-copy .actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem}
+  .clients{margin-top:3rem;padding-top:1.25rem;border-top:1px solid var(--rule);display:flex;gap:2.5rem;flex-wrap:wrap;align-items:baseline;font:600 1.05rem var(--display);font-stretch:112%;color:#5b5f63}
+  .clients span:first-child{font:italic 400 1rem var(--body);font-stretch:normal;color:var(--ink)}
+
+  section{padding:clamp(4rem,8vw,7rem) 0}
+  .section-head{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:3rem}
+  .section-head p{margin:0}
+
+  /* work */
+  .work{background:var(--film);color:#dcdad5}
+  .work h2,.work h3{color:#fff}
+  .work a{color:#fff}
+  .feature{display:grid;grid-template-columns:2fr 1fr;gap:2.5rem;align-items:end;margin-bottom:3.5rem}
+  .play{all:unset;cursor:pointer;display:block;position:relative;width:100%}
+  .play .frame{aspect-ratio:16/9}
+  .feature .frame{aspect-ratio:2.39/1}
+  .play::after{content:"";position:absolute;left:1.25rem;bottom:1.25rem;width:0;height:0;border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;opacity:.9}
+  .play:focus-visible{outline:3px solid var(--ochre);outline-offset:4px}
+  .play:hover .placeholder{filter:brightness(1.25)}
+  .industry{font:500 .9rem var(--display);color:var(--ochre);margin:0 0 .5rem}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem 1.75rem}
+  .grid h3{margin-top:1rem;font-size:1.15rem}
+  .grid p{font-size:1rem;color:#a9adb1;margin:.35rem 0 0}
+  .grid p.industry{color:var(--ochre)}
+  .why h3,.photo-list h3,.steps h3{margin-bottom:.5rem}
+
+  .work-grid{grid-template-columns:repeat(12,1fr)}
+  .work-grid .big{grid-column:span 6}
+  .work-grid .small{grid-column:span 3}
+  /* why */
+  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink)}
+  .why div{padding:1.75rem 1.75rem 0 0}
+  .why div+div{padding-left:1.75rem;border-left:1px solid var(--rule)}
+  .why p{font-size:1.05rem}
+
+  .refresh{display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid #fff}
+  .refresh div{padding:1.75rem 1.5rem 0 0}
+  .refresh div+div{padding-left:1.5rem;border-left:1px solid #33383d}
+  .refresh h3{margin-bottom:.5rem}
+  .refresh p{font-size:1.02rem;color:#bfc2c5}
+  /* packages: a rate sheet, not cards */
+  .services{background:var(--paper)}
+  .rates{border-top:2px solid var(--ink)}
+  .rate{display:grid;grid-template-columns:1.1fr 1.6fr .7fr;gap:2.5rem;padding:2rem 0;border-bottom:1px solid var(--rule);align-items:start}
+  .rate ul{margin:0;padding-left:1.1rem;font-size:1.05rem}
+  .rate li{margin-bottom:.3rem}
+  .rate .price{font:700 1.5rem/1.1 var(--display);font-stretch:112%;text-align:right}
+  .rate .price small{display:block;font:400 .95rem var(--body);color:#5b5f63;margin-top:.35rem}
+  .rate.popular h3::after{content:"Most booked";display:inline-block;margin-left:.6rem;vertical-align:middle;font:600 .75rem/1 var(--display);background:var(--ochre);color:#fff;padding:.35em .55em;border-radius:2px}
+  .rate p{font-size:1.05rem;margin-top:.5rem}
+
+  /* photo */
+  .photo-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(0,auto);gap:1rem}
+  .ph{position:relative;background:#cfccc5;overflow:hidden}
+  .ph .placeholder{position:absolute;inset:0;background:linear-gradient(160deg,#b9b5ad,#8f8b84);color:#f2f1ee}
+  .ph figcaption{position:absolute;left:.9rem;bottom:.8rem;font:600 .9rem var(--display);color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+  .photo-grid{grid-template-rows:clamp(260px,30vw,420px) clamp(220px,26vw,360px)}
+  .ph.a,.ph.b{grid-column:span 3}
+  .ph.c{grid-column:span 6}
+  .ph.d{grid-column:span 7}
+  .ph.e{grid-column:span 5}
+  .photo-list{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
+  .photo-list p{font-size:1.02rem}
+
+  /* process: a real sequence, so numbers earn their place */
+  .steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;counter-reset:s}
+  .steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:1.25rem}
+  .steps li::before{content:counter(s);display:block;font:800 3rem/1 var(--display);font-stretch:125%;color:var(--steel);margin-bottom:1rem}
+  .steps p{font-size:1.05rem}
+
+  /* team */
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+  .team .ph{aspect-ratio:4/5}
+  .team h3{margin-top:1rem}
+  .team p{font-size:1.02rem;margin-top:.3rem}
+
+  /* faq */
+  .faq{max-width:860px}
+  .faq details{border-top:1px solid var(--rule);padding:1.25rem 0}
+  .faq details:last-child{border-bottom:1px solid var(--rule)}
+  .faq summary{cursor:pointer;font:650 1.2rem/1.3 var(--display);font-stretch:108%;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-weight:400;font-size:1.5rem;line-height:1;transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{margin:.9rem 0 0}
+
+  /* book */
+  .book{background:var(--ink);color:var(--paper)}
+  .book h2{color:#fff}
+  .book a{color:#fff}
+  .book-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:3.5rem;align-items:start}
+  .book ul{padding-left:1.1rem;font-size:1.05rem}
+  .lead{margin-top:2.5rem;padding-top:2rem;border-top:1px solid #3a3f44}
+  .lead h3{color:#fff;margin-bottom:.4rem}
+  .lead p{font-size:1.02rem}
+  .lead label{display:block;font:500 .92rem var(--display);color:#c9ccce;margin-bottom:1rem}
+  .lead .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .lead input,.lead select,.lead textarea{display:block;width:100%;margin-top:.4rem;padding:.75rem .85rem;font:400 1rem var(--body);color:var(--ink);background:var(--paper);border:1px solid transparent;border-radius:2px}
+  .lead input:focus,.lead select:focus,.lead textarea:focus{outline:3px solid var(--ochre);outline-offset:1px}
+  .lead .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .btn-light{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+  .btn-light:hover{background:#fff}
+  .btn-light[disabled]{opacity:.6;cursor:wait}
+  .form-status{margin-top:1rem;font:500 1rem var(--display)}
+  @media (max-width:560px){.lead .row{grid-template-columns:1fr;gap:0}}
+  #calendar{background:var(--paper);color:var(--ink);min-height:640px;border-radius:2px}
+  #calendar .cal-empty{padding:2.5rem;font-size:1.05rem}
+  #calendar .cal-empty a{color:var(--steel)}
+
+  footer{padding:2.5rem 0;font:500 .95rem var(--display);color:#5b5f63}
+  footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  footer a{color:inherit}
+
+  /* video modal */
+  dialog{border:0;padding:0;background:#000;width:min(1100px,94vw);max-width:none}
+  dialog::backdrop{background:rgba(0,0,0,.85)}
+  dialog .vid{aspect-ratio:16/9}
+  dialog .vid iframe{width:100%;height:100%;border:0}
+  dialog .close{position:absolute;top:-2.6rem;right:0;background:none;border:0;color:#fff;font:600 1rem var(--display);cursor:pointer}
+  dialog{overflow:visible}
+
+  @media (max-width:900px){
+    .nav ul{display:none}
+    .nav.open ul{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--rule)}
+    .nav.open ul a{display:block;padding:1rem 1.5rem}
+    .menu-toggle{display:block}
+    .nav .btn{display:none}
+    .hero-copy,.section-head,.feature,.book-grid{grid-template-columns:1fr;gap:1.5rem}
+    .frame,.feature .frame{aspect-ratio:16/10}
+    .grid,.team{grid-template-columns:1fr 1fr}
+    .work-grid .big,.work-grid .small{grid-column:auto}
+    .why{grid-template-columns:1fr}
+    .refresh{grid-template-columns:1fr 1fr}
+    .refresh div+div{padding-left:0;border-left:0}
+    .refresh div{padding-right:1.5rem}
+    .why div+div{padding-left:0;border-left:0;border-top:1px solid var(--rule)}
+    .rate{grid-template-columns:1fr;gap:1rem}
+    .rate .price{text-align:left}
+    .photo-list,.steps{grid-template-columns:1fr 1fr}
+    .photo-grid{grid-template-rows:none;grid-auto-rows:280px}
+    .ph.a,.ph.b{grid-column:span 6}
+    .ph.c,.ph.d,.ph.e{grid-column:span 12}
+  }
+  @media (max-width:560px){
+    .grid,.team,.photo-list,.steps,.refresh{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Studio Name</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#refresh">Website &amp; social</a></li>
+      <li><a href="#services">Packages</a></li>
+      <li><a href="#photo">Photo</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn btn-solid" href="#book">Book a call</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" style="padding-top:clamp(1.5rem,4vw,3rem)">
+  <div class="wrap">
+    <div class="frame hero-frame">
+      <!-- EDIT: replace the placeholder with a 15–30s muted loop of your reel.
+           Cloudflare Stream or Vimeo both give you an MP4/HLS URL. Example:
+      <video autoplay muted loop playsinline poster="img/hero-poster.jpg">
+        <source src="https://YOUR-VIDEO-URL.mp4" type="video/mp4">
+      </video> -->
+      <div class="placeholder">Hero reel loop goes here (15–30 seconds, muted)</div>
+    </div>
+    <div class="hero-copy">
+      <h1>Your story, shot like a national campaign. Priced like it isn't.</h1>
+      <div>
+        <p class="lede">Brand films, photography, and a new website and social presence, all built from one shoot. One day on site, fast turnaround and a budget that fits yours.</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="#book">Book a discovery call</a>
+          <button class="btn btn-line" data-video="REEL_VIMEO_ID">Watch the reel</button>
+        </div>
+      </div>
+    </div>
+    <!-- EDIT: confirm you have permission to name each client publicly -->
+    <div class="clients">
+      <span>Recent work for</span>
+      <span>Pepsi</span>
+      <span>Homebot</span>
+      <span>High Desert Law</span>
+      <span>Seven Titans Jeans</span>
+      <span>DACS Asphalt &amp; Concrete</span>
+      <!-- <span>Caterpillar</span>  add once usage is approved -->
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Recent work</h2>
+      <p>Every film starts with the people doing the work. We interview them, follow them on the job and cut it into a story your customers will actually watch.</p>
+    </div>
+
+    <!-- Featured project. When Caterpillar is approved, it can take this slot
+         and Pepsi moves into the grid below. data-video takes a Vimeo ID. -->
+    <div class="feature">
+      <button class="play" data-video="1091881539" aria-label="Play Pepsi: Taste of Texas">
+        <div class="frame"><div class="placeholder">Pepsi: Taste of Texas still</div></div>
+      </button>
+      <div>
+        <p class="industry">Food and beverage</p>
+        <h3 style="font-size:clamp(1.6rem,2.6vw,2.2rem)">Pepsi: Taste of Texas</h3>
+        <p style="margin-top:1rem">[Two sentences: what the film was about, where you shot it and what Pepsi used it for.]</p>
+        <p style="color:#a9adb1;font-size:1rem">[Shoot length]. Delivered in [X] weeks.</p>
+      </div>
+    </div>
+
+    <div class="grid work-grid">
+      <div class="big">
+        <button class="play" data-video="1136563795/26d867325b" aria-label="Play DACS Asphalt &amp; Concrete"><div class="frame"><div class="placeholder">DACS Asphalt &amp; Concrete still</div></div></button>
+        <p class="industry" style="margin-top:1.1rem">Construction</p><h3 style="margin-top:0">DACS Asphalt &amp; Concrete</h3><p>[One line on the story you told for them.]</p>
+      </div>
+      <div class="big">
+        <button class="play" data-video="1245269951/2214ab8f2c" aria-label="Play High Desert Law"><div class="frame"><div class="placeholder">High Desert Law still</div></div></button>
+        <p class="industry" style="margin-top:1.1rem">Law firm</p><h3 style="margin-top:0">High Desert Law</h3><p>[One line on the story you told for them.]</p>
+      </div>
+      <div class="small">
+        <button class="play" data-video="1054605780/a39a46dd4f" aria-label="Play Homebot"><div class="frame"><div class="placeholder">Homebot still</div></div></button>
+        <p class="industry" style="margin-top:1.1rem">Real estate technology</p><h3 style="margin-top:0">Homebot</h3><p>[One line on the story you told for them.]</p>
+      </div>
+      <div class="small">
+        <button class="play" data-video="1189410903/8c51b4cd55" aria-label="Play Seven Titans Jeans"><div class="frame"><div class="placeholder">Seven Titans Jeans still</div></div></button>
+        <p class="industry" style="margin-top:1.1rem">Apparel</p><h3 style="margin-top:0">Seven Titans Jeans</h3><p>[One line on the story you told for them.]</p>
+      </div>
+      <div class="small">
+        <button class="play" data-video="1091931143" aria-label="Play Frame of Adventure"><div class="frame"><div class="placeholder">Frame of Adventure still</div></div></button>
+        <p class="industry" style="margin-top:1.1rem">Photographer profile</p><h3 style="margin-top:0">Frame of Adventure</h3><p>A profile of adventure photographer Tamara Susa. [Add a line on the story.]</p>
+      </div>
+      <div class="small">
+        <button class="play" data-video="1133152250/e5c0c32e2d" aria-label="Play Chuck Sperry"><div class="frame"><div class="placeholder">Chuck Sperry still</div></div></button>
+        <p class="industry" style="margin-top:1.1rem">Artist profile</p><h3 style="margin-top:0">Chuck Sperry</h3><p>[One line on the story you told for them.]</p>
+      </div>
+      <!-- Caterpillar (add once usage is approved)
+      <div class="small">
+        <button class="play" data-video="CAT_VIMEO_ID" aria-label="Play Caterpillar"><div class="frame"><div class="placeholder">Caterpillar still</div></div></button>
+        <p class="industry" style="margin-top:1.1rem">Heavy equipment</p><h3 style="margin-top:0">Caterpillar: new technology in the field</h3><p>A three-minute film shot on location in South Carolina, with interviews and b-roll of Caterpillar's newest tech at work.</p>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section>
+  <div class="wrap">
+    <h2 style="max-width:20ch">One day on site. Everything your brand needs.</h2>
+    <div class="why">
+      <div>
+        <h3>One-day shoots</h3>
+        <p>We plan the interviews, shot list and schedule ahead of time, so the whole shoot fits in a single day. Your team keeps working while we film.</p>
+      </div>
+      <div>
+        <h3>Fast turnaround</h3>
+        <p>A first cut in about [X] days and final files in about [2] weeks. Working toward a launch or a trade show? We'll plan backward from your date.</p>
+      </div>
+      <div>
+        <h3>Budgets that flex</h3>
+        <p>Start with a headshot day or go all the way to a full brand refresh. Tell us what you have to spend and we'll build the shoot around it.</p>
+      </div>
+      <div>
+        <h3>Every channel covered</h3>
+        <p>One day gives you a film, a photo library, and banners and posts for your website and social. It all matches because it comes from the same shoot.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEBSITE & SOCIAL -->
+<section class="work" id="refresh">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>A new website and social presence, built from your shoot</h2>
+      <p>New footage is only half the job. We put it to work everywhere people find you, so your company looks the same on your homepage, LinkedIn, Instagram and the booth at your next trade show.</p>
+    </div>
+    <div class="refresh">
+      <div><h3>Website redesign</h3><p>A fast, modern site built around your film and photos. We redesign what you have or build it new.</p></div>
+      <div><h3>Social refresh</h3><p>Profile images, cover photos, banners and cover videos for every platform, plus a launch set of posts and reels.</p></div>
+      <div><h3>Banners and graphics</h3><p>LinkedIn and YouTube banners, email signatures, ad sizes and trade show graphics that match the rest.</p></div>
+      <div><h3>Photo library</h3><p>Headshots, team photos and on-the-job shots, edited and organized so your team can grab what they need.</p></div>
+      <div><h3>Video in every size</h3><p>Your hero film, plus vertical and square cutdowns for reels, stories, ads and sales emails.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Packages</h2>
+      <p>Every package is built around a single shoot day and includes pre-production, editing, color, licensed music and two rounds of revisions. Have a different budget in mind? Tell us what you have and we'll scope a shoot to fit it.</p>
+    </div>
+    <div class="rates">
+      <div class="rate">
+        <div><h3>Story film</h3><p>For the homepage, sales decks and trade shows.</p></div>
+        <ul>
+          <li>2–3 minute brand film</li>
+          <li>Up to 3 on-camera interviews</li>
+          <li>One shoot day on location</li>
+          <li>One 30-second cutdown</li>
+        </ul>
+        <div class="price">From $X,XXX<small>Final files in about [2] weeks</small></div>
+      </div>
+      <div class="rate popular">
+        <div><h3>Story film + photo</h3><p>Film and stills from the same day, the same team and the same look.</p></div>
+        <ul>
+          <li>Everything in Story film</li>
+          <li>Headshots for up to [10] people</li>
+          <li>Team and on-site photography</li>
+          <li>40+ edited photos for web and social</li>
+          <li>Three social cutdowns (vertical and horizontal)</li>
+        </ul>
+        <div class="price">From $X,XXX<small>Film and photos from one day</small></div>
+      </div>
+      <div class="rate">
+        <div><h3>Full brand refresh</h3><p>Everything you need to revamp how your company looks online, from one shoot.</p></div>
+        <ul>
+          <li>Everything in Story film + photo</li>
+          <li>Website redesign built around your new footage and photos</li>
+          <li>Social refresh: profile images, banners, cover videos and highlight covers</li>
+          <li>A launch set of posts and reels for every platform</li>
+          <li>Banners for LinkedIn, YouTube, email signatures and trade shows</li>
+        </ul>
+        <div class="price">From $XX,XXX<small>Scoped on a call</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO -->
+<section id="photo">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Photography for your website, your team page and your next pitch</h2>
+      <p>Most company websites use stock photos or headshots from five years ago. We shoot your actual people and your actual work, lit and graded to match your film. Book photo on its own or add it to any shoot day.</p>
+    </div>
+    <div class="photo-grid">
+      <figure class="ph a" style="margin:0"><div class="placeholder">Headshot</div><figcaption>Headshots</figcaption></figure>
+      <figure class="ph b" style="margin:0"><div class="placeholder">Headshot</div><figcaption>Headshots</figcaption></figure>
+      <figure class="ph c" style="margin:0"><div class="placeholder">Team photo</div><figcaption>Team</figcaption></figure>
+      <figure class="ph d" style="margin:0"><div class="placeholder">On-site / facility</div><figcaption>On the job</figcaption></figure>
+      <figure class="ph e" style="margin:0"><div class="placeholder">Product / detail</div><figcaption>Product and detail</figcaption></figure>
+    </div>
+    <div class="photo-list">
+      <div><h3>Headshots</h3><p>Consistent, flattering portraits for your leadership, attorneys or whole staff. We set up on site, so it takes each person about five minutes.</p></div>
+      <div><h3>Team photos</h3><p>Group shots that look like your company, not a yearbook. Good for about pages, recruiting and press.</p></div>
+      <div><h3>On the job</h3><p>Your people, equipment and facility at work. The photos your website and proposals are missing.</p></div>
+      <div><h3>Product and detail</h3><p>Clean shots of what you make, from apparel to machinery, ready for your site, catalog or social.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="services" id="process">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><h3>Discovery call</h3><p>Thirty minutes to talk through your story, who needs to see it and what you want it to do.</p></li>
+      <li><h3>Pre-production</h3><p>We write the interview questions, plan the shot list and schedule the day around your operations.</p></li>
+      <li><h3>Shoot day</h3><p>We arrive, film the interviews and b-roll, and shoots photos if they're in your package.</p></li>
+      <li><h3>Delivery and launch</h3><p>You review a first cut, send notes and get final files in every size you need. On a brand refresh, we launch the new website and social profiles with you.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The team</h2>
+      <p>We're directors, photographers, editors and designers. [One or two sentences about your background: who you've worked with, how long you've been doing this, where you're based.]</p>
+    </div>
+    <div class="team">
+      <div><figure class="ph" style="margin:0"><div class="placeholder">Photo</div></figure><h3>Name</h3><p>Director and producer</p></div>
+      <div><figure class="ph" style="margin:0"><div class="placeholder">Photo</div></figure><h3>Name</h3><p>Director of photography</p></div>
+      <div><figure class="ph" style="margin:0"><div class="placeholder">Photo</div></figure><h3>Name</h3><p>Editor and colorist</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="services" id="faq">
+  <div class="wrap faq">
+    <h2>Questions</h2>
+    <details><summary>How much does a video cost?</summary><p>Most single-day story films fall within the package prices above. The final number depends on the number of locations, interviews and deliverables. We'll give you a fixed quote after the discovery call. Working with a smaller budget? Tell us. We can trim deliverables or start with photo only and build from there.</p></details>
+    <details><summary>Do you travel?</summary><p>Yes. We're based in [City, State] and shoot anywhere in the U.S. Travel costs are quoted separately and kept lean.</p></details>
+    <details><summary>How long until we get the final video?</summary><p>You get a first cut in about [X] days and final files in about [2] weeks from the shoot day. Photos usually arrive within a week. Need it sooner for a launch or event? Tell us on the call and we'll plan around your date.</p></details>
+    <details><summary>What do we need to prepare?</summary><p>Not much. Pick the people to interview and give us access to the site. We handle the questions, the shot list and the schedule, and send you a one-page plan before the shoot.</p></details>
+    <details><summary>Do you build the website yourselves?</summary><p>Yes. We design and build it in-house around your new film and photos, or redesign your current site on the platform you already use. You get a site that loads fast and is easy to update.</p></details>
+    <details><summary>What do we get for social?</summary><p>New profile and cover images, banners and cover videos sized for each platform, plus a launch set of posts and reels cut from your shoot. Everything matches your website, so your brand looks the same wherever people find you.</p></details>
+    <details><summary>Can we book photography without a video?</summary><p>Yes. Headshot days, team photos and on-site photography are available on their own.</p></details>
+    <details><summary>Who owns the footage?</summary><p>You get full rights to use the final film and photos anywhere, forever. We ask to show the work in our portfolio, and if you'd rather we didn't, just say so.</p></details>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <h2>Tell us your story</h2>
+      <p>Book a free 30-minute discovery call. We'll talk about what you want to make and whether we're the right fit, and send a quote within two business days.</p>
+      <p>Before the call, it helps to know:</p>
+      <ul>
+        <li>Who the video is for: customers, recruits or investors</li>
+        <li>Where it will live: website, sales, trade shows or social</li>
+        <li>Any deadline you're working toward</li>
+      </ul>
+      <form id="lead-form" class="lead" novalidate>
+        <h3>Rather write it out?</h3>
+        <p>Send us the details and we'll reply within one business day.</p>
+        <div class="row">
+          <label>Name<input name="name" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <label>Company<input name="company" autocomplete="organization"></label>
+        <div class="row">
+          <label>What do you need?
+            <select name="service">
+              <option value="">Choose one</option>
+              <option>Brand film</option><option>Photography</option><option>Film + photo</option>
+              <option>Full brand refresh</option><option>Not sure yet</option>
+            </select></label>
+          <label>Budget
+            <select name="budget">
+              <option value="">Choose one</option>
+              <option>Under $5k</option><option>$5k–10k</option><option>$10k–25k</option><option>$25k+</option><option>Not sure yet</option>
+            </select></label>
+        </div>
+        <label>Tell us the story you want to tell<textarea name="message" rows="4" maxlength="4000"></textarea></label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <button class="btn btn-light" type="submit">Send details</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p style="margin-top:1.5rem">Prefer email? <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+    </div>
+    <div id="calendar"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Studio Name · [City, State]</span>
+    <span><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a> &nbsp; <a href="https://instagram.com/">Instagram</a> &nbsp; <a href="https://vimeo.com/">Vimeo</a></span>
+  </div>
+</footer>
+
+<dialog id="player" aria-label="Video player">
+  <button class="close" aria-label="Close video">Close</button>
+  <div class="vid"></div>
+</dialog>
+
+<script>
+  // ── SETTINGS ────────────────────────────────────────────
+  // Paste your Calendly or Cal.com event link here, e.g.
+  // "https://calendly.com/yourname/discovery-call"
+  const CALENDAR_URL = "";
+  // Supabase project settings (Project Settings → API). The publishable/anon key
+  // is safe to put in a web page: the table only allows inserts.
+  const SUPABASE_URL = "";
+  const SUPABASE_ANON_KEY = "";
+  // ────────────────────────────────────────────────────────
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // mobile menu
+  const nav = document.getElementById('nav');
+  const toggle = nav.querySelector('.menu-toggle');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('ul a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // video modal (Vimeo IDs in data-video)
+  const dlg = document.getElementById('player');
+  const vid = dlg.querySelector('.vid');
+  document.querySelectorAll('[data-video]').forEach(el => el.addEventListener('click', () => {
+    const id = el.dataset.video;
+    // Accepts "123456789" (public) or "123456789/abc123def4" (unlisted Vimeo link)
+    const m = id.match(/^(\d+)(?:\/([a-z0-9]+))?$/i);
+    if (!m) { vid.innerHTML = '<p style="color:#fff;padding:2rem">Add a Vimeo ID to this button\'s data-video attribute to play a film here.</p>'; }
+    else { const h = m[2] ? `&h=${m[2]}` : ''; vid.innerHTML = `<iframe src="https://player.vimeo.com/video/${m[1]}?autoplay=1&title=0&byline=0&portrait=0${h}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Video"></iframe>`; }
+    dlg.showModal();
+  }));
+  const closeDlg = () => { dlg.close(); };
+  dlg.querySelector('.close').addEventListener('click', closeDlg);
+  dlg.addEventListener('click', e => { if (e.target === dlg) closeDlg(); });
+  dlg.addEventListener('close', () => { vid.innerHTML = ''; });
+
+
+  // Pull each film's thumbnail from Vimeo so the tiles show real stills.
+  // If a request fails, the dark placeholder stays.
+  document.querySelectorAll('.play[data-video]').forEach(btn => {
+    const m = btn.dataset.video.match(/^(\d+)(?:\/([a-z0-9]+))?$/i);
+    if (!m) return;
+    const url = `https://vimeo.com/${m[1]}${m[2] ? '/' + m[2] : ''}`;
+    fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(url)}&width=1280`)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if (!d || !d.thumbnail_url) return;
+        const ph = btn.querySelector('.placeholder');
+        ph.textContent = '';
+        ph.style.background = `#000 url("${d.thumbnail_url}") center/cover no-repeat`;
+      })
+      .catch(() => {});
+  });
+
+  // lead form → Supabase "leads" table
+  const form = document.getElementById('lead-form');
+  const statusEl = form.querySelector('.form-status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form));
+    if (d.website) return; // bot filled the hidden field
+    if (!d.name.trim() || !/^\S+@\S+\.\S+$/.test(d.email)) {
+      statusEl.textContent = 'Add your name and a valid email so we can reply.'; return;
+    }
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+      statusEl.textContent = 'The form isn\'t connected yet. Email us at hello@yourdomain.com.'; return;
+    }
+    const btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      const r = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: SUPABASE_ANON_KEY,
+                   Authorization: `Bearer ${SUPABASE_ANON_KEY}`, Prefer: 'return=minimal' },
+        body: JSON.stringify({ name: d.name.trim(), email: d.email.trim(), company: d.company || null,
+          service: d.service || null, budget: d.budget || null, message: d.message || null,
+          source: location.pathname + location.search })
+      });
+      if (!r.ok) throw new Error(r.status);
+      form.reset(); btn.textContent = 'Sent';
+      statusEl.textContent = 'Thanks. We got your details and will reply within one business day.';
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Send details';
+      statusEl.textContent = 'That didn\'t go through. Try again, or email us at hello@yourdomain.com.';
+    }
+  });
+
+  // booking calendar
+  const cal = document.getElementById('calendar');
+  if (CALENDAR_URL.includes('calendly.com')) {
+    cal.innerHTML = `<div class="calendly-inline-widget" data-url="${CALENDAR_URL}?hide_gdpr_banner=1" style="min-width:320px;height:700px"></div>`;
+    const s = document.createElement('script'); s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true; document.body.appendChild(s);
+  } else if (CALENDAR_URL) {
+    cal.innerHTML = `<iframe src="${CALENDAR_URL}?embed=true" style="width:100%;height:700px;border:0" title="Book a discovery call"></iframe>`;
+  } else {
+    cal.innerHTML = '<div class="cal-empty"><h3>Booking calendar</h3><p style="margin-top:.75rem">Your Calendly or Cal.com scheduler appears here once you paste its link into <code>CALENDAR_URL</code> at the bottom of this file.</p></div>';
+  }
+</script>
+</body>
+</html>
