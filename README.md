@@ -2,11 +2,20 @@
 
 A single static page (`index.html`) with no build step. It's ready for Cloudflare Pages.
 
-## Deploy
-1. Create a GitHub repo and add `index.html` (plus an `img/` folder for photos).
+## Deploy (GitHub → Cloudflare Pages)
+1. Push this folder to a GitHub repo.
 2. In Cloudflare, go to Workers & Pages → Create → Pages → Connect to Git and pick the repo.
    Leave the framework preset at **None**, the build command blank and the output directory at `/`.
-3. Add your custom domain under the project's Custom domains tab.
+3. Every push to `main` now redeploys the site automatically.
+4. Add your custom domain under the project's Custom domains tab.
+
+## Lead form (Supabase)
+1. Create a Supabase project. Open SQL Editor, paste `supabase/schema.sql` and run it.
+2. Copy the Project URL and the anon (publishable) key from Project Settings → API.
+   Paste them into `SUPABASE_URL` and `SUPABASE_ANON_KEY` near the bottom of `index.html`.
+   Never paste the service_role or secret key into the site.
+3. Submissions land in the `leads` table (Table Editor → leads).
+4. Optional email alerts: Database → Webhooks → on insert into `leads`, send to Zapier, Make or your CRM.
 
 ## What to swap in (search the file for `EDIT`)
 - **Name:** replace "Studio Name" (title tag, nav, footer).
