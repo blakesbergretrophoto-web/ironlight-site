@@ -18,7 +18,7 @@ A single static page (`index.html`) with no build step. It's ready for Cloudflar
 4. Optional email alerts: Database → Webhooks → on insert into `leads`, send to Zapier, Make or your CRM.
 
 ## What to swap in (search the file for `EDIT`)
-- **Name:** replace "Studio Name" (title tag, nav, footer).
+- **Name:** replace "Ironlight" (title tag, nav, footer).
 - **Hero loop:** a 15–30 s muted MP4 from Cloudflare Stream or Vimeo. Keep it under ~8 MB.
 - **Films:** put the Vimeo ID (the number in the URL) in each `data-video="..."` attribute.
 - **Stills and photos:** replace each `<div class="placeholder">` with `<img src="img/....jpg" alt="...">`.

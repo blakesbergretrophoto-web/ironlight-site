@@ -6,10 +6,10 @@ Plan on about an hour, not counting writing copy.
 ---
 
 ## Step 0: Get the project onto your computer
-1. Download `studio-site.zip` and unzip it somewhere permanent, like `~/Projects/studio-site`.
+1. Download `ironlight-site.zip` and unzip it somewhere permanent, like `~/Projects/ironlight-site`.
 2. Open Terminal and go to the folder:
    ```
-   cd ~/Projects/studio-site
+   cd ~/Projects/ironlight-site
    ```
 3. Start Claude Code in that folder:
    ```
@@ -23,16 +23,16 @@ Plan on about an hour, not counting writing copy.
 
 ## Step 1: Put the code on GitHub
 1. Go to github.com → **New repository**.
-   - Name: `studio-site`. You can rename it once you have a business name.
+   - Name: `ironlight-site`.
    - Visibility: **Private** is fine. Cloudflare can still deploy it.
    - **Don't** add a README, .gitignore or license. The repo has to be empty.
 2. Copy the repo URL and run:
    ```
-   git remote add origin https://github.com/YOUR-USERNAME/studio-site.git
+   git remote add origin https://github.com/YOUR-USERNAME/ironlight-site.git
    git push -u origin main
    ```
    If you have the GitHub CLI installed, this one command does both steps:
-   `gh repo create studio-site --private --source=. --push`
+   `gh repo create ironlight-site --private --source=. --push`
 
 ✅ **Check:** refresh the repo page on GitHub. You should see `index.html`, `README.md`, `LAUNCH.md` and the `supabase` folder.
 
@@ -40,7 +40,7 @@ Plan on about an hour, not counting writing copy.
 
 ## Step 2: Set up Supabase for the lead form
 1. Go to supabase.com → **New project**.
-   - Name: `studio-site`
+   - Name: `ironlight-site`
    - Database password: generate one and save it in your password manager
    - Region: the one closest to you (West US for Denver)
    - Wait about 2 minutes for it to finish setting up.
@@ -69,14 +69,14 @@ Plan on about an hour, not counting writing copy.
 ## Step 3: Go live on Cloudflare Pages
 1. Go to dash.cloudflare.com and create a free account if you don't have one.
 2. **Workers & Pages** → **Create** → the **Pages** tab → **Connect to Git**.
-3. Authorize GitHub, then pick the `studio-site` repo.
+3. Authorize GitHub, then pick the `ironlight-site` repo.
 4. Build settings:
    - Framework preset: **None**
    - Build command: *(leave empty)*
    - Build output directory: `/`
 5. Click **Save and Deploy**. It takes under a minute.
 
-✅ **Check:** open the `https://studio-site.pages.dev` link Cloudflare gives you. The site should load, and clicking a film tile should play it.
+✅ **Check:** open the `https://ironlight-site.pages.dev` link Cloudflare gives you. The site should load, and clicking a film tile should play it.
 
 From now on, **every `git push` updates the live site automatically** in about 30 seconds.
 
@@ -110,7 +110,7 @@ Ask Claude Code: *"Find every placeholder in index.html and list them."* It will
 
 | What | Where |
 |---|---|
-| Business name | "Studio Name" in the title, nav and footer |
+| Business name | "Ironlight" in the title, nav and footer |
 | Prices | `From $X,XXX` in Packages |
 | Turnaround times | `[X] days`, `[2] weeks` in the selling points, Packages and FAQ |
 | Film descriptions | `[One line on the story…]` under each film, plus the Pepsi write-up |
@@ -140,7 +140,7 @@ Ask Claude Code: *"Find every placeholder in index.html and list them."* It will
 - [ ] Every film plays on desktop **and** phone
 - [ ] The form submits and the row shows up in Supabase
 - [ ] You can book a test call on the calendar
-- [ ] No "Studio Name", `[brackets]` or `X,XXX` left anywhere
+- [ ] No "Ironlight", `[brackets]` or `X,XXX` left anywhere
 - [ ] You have permission to show the work and name each client (Pepsi, and Caterpillar once it's approved)
 - [ ] You've added a share image (`og:image`) so links look good in texts, Slack and LinkedIn
 - [ ] Your friend has what he needs for SEO and analytics. Cloudflare Web Analytics is free: Pages project → **Metrics**.
